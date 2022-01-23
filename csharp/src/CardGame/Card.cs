@@ -8,30 +8,17 @@ namespace CodingChallenge.CardGame
 {
     public class Card : ICard
     {
-        public Card(int suit, int value)
+        public Card(int i, int j)
         {
-            this.Suit = (Suit)suit;
-            this.Value = (Value)value;  
-
+            Suit = (Suit)i;
+            Value = (Value)j;
         }
-        public Suit Suit {
-            get {
-                return this.Suit;
-            }
-           private set {
-                this.Suit = value;
-            } 
-        }
+        public Suit Suit { get; set; }
 
-        public Value Value {
-            get {
-                return this.Value;
-            }
-            private set {
-                this.Value = value; 
-            }
-        }
+        public Value Value { get; set; }
 
-        public bool Equals(ICard other) => throw new NotImplementedException();
+        public bool Equals(ICard other) {
+            return this == other as Card;
+        }
     }
 }

@@ -6,7 +6,7 @@ namespace CodingChallenge.CardGame
     public class PackOfCards : IPackOfCards
     {
         private static int _maxNumberOfCards = 52;
-        private ICard[] _cards = new ICard[_maxNumberOfCards];
+        private ICard[] _cards = new Card[_maxNumberOfCards];
         private int _currentCardPosition = 0;
         public PackOfCards()
         {
@@ -16,9 +16,9 @@ namespace CodingChallenge.CardGame
         private void InitializePackOfCards()
         {
             int n = 0;
-            for (int i = 0; i < 4; i++)
+            for (int i = (int)Suit.Clubs; i <= (int)Suit.Spades; i++)
             {
-                for (int j = 0; j < 13; j++)
+                for (int j = (int)Value.Ace; j <= (int)Value.King; j++)
                 {
                     _cards[n++] = new Card(i, j);
                     Count++;
@@ -37,7 +37,19 @@ namespace CodingChallenge.CardGame
 
         public void Shuffle()
         {
+            Random rand = new Random();
 
+            for (int i = 0; i < _maxNumberOfCards; i++)
+            {
+
+                int r = i + rand.Next(52 - i);
+
+                //swapping the elements
+                ICard temp = _cards[r];
+                _cards[r] = _cards[i];
+                _cards[i] = temp;
+
+            }
         }
 
         public ICard TakeCardFromTopOfPack()
