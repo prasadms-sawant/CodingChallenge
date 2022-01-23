@@ -41,14 +41,16 @@ namespace CodingChallenge.CardGame
         /// The shuffle method perform the following operations
         /// 1. Merge the removed cards back into the pack of cards.
         /// 2. Shuffle the pack of cards.
+        /// 3. Adjust the count property
         /// </summary>
         public void Shuffle()
         {
             Random rand = new Random();
 
+            // Geting the elements from the array having values
             _removedCards = _removedCards.Where(card => card != null).ToArray();
-            Count +=_removedCards.Length;
             _cards = _cards.Concat(_removedCards).ToArray();
+            Count += _removedCards.Length;
 
             for (int i = 0; i < _maxNumberOfCards; i++)
             {

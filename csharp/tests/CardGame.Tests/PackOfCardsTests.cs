@@ -14,6 +14,7 @@ namespace CodingChallenge.CardGame.Tests
 
         [Test]
         [TestCase(51)]
+        [Repeat(10)]
         public void TakeCardFromTopOfPackTest(int expectedCardsCount) {
             _pack.TakeCardFromTopOfPack();
             int output = _pack.Count;
