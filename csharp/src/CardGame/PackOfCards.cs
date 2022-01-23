@@ -47,6 +47,7 @@ namespace CodingChallenge.CardGame
             Random rand = new Random();
 
             _removedCards = _removedCards.Where(card => card != null).ToArray();
+            Count +=_removedCards.Length;
             _cards = _cards.Concat(_removedCards).ToArray();
 
             for (int i = 0; i < _maxNumberOfCards; i++)
@@ -72,6 +73,7 @@ namespace CodingChallenge.CardGame
             {
                 _removedCards[_currentCardPosition] = _cards[_currentCardPosition];
                 _cards = _cards.Where((source, index) => index != _currentCardPosition).ToArray();
+                Count--;
                 return _cards[_currentCardPosition++];
             }
             else
