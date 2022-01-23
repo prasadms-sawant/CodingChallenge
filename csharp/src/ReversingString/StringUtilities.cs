@@ -11,6 +11,10 @@ public class StringUtilities
     /// <returns>It returns the reversed string passed as an input</returns>
     public static string Reverse(string s)
     {
+        // Return blank if string is null or empty.
+        if (String.IsNullOrEmpty(s))
+            return "";
+
         // Convert the input to char array to iterate over each character.
         char[] inputStrArr = s.ToCharArray();
         StringBuilder sbToHoldReversedStr = new StringBuilder(); 
