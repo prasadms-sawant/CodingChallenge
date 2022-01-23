@@ -1,23 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace CodingChallenge.CardGame
+﻿namespace CodingChallenge.CardGame
 {
+    /// <summary>
+    /// This class implement ICard contract.
+    /// </summary>
     public class Card : ICard
     {
+        // Setting up the card object with respective values of Suit and Value.
         public Card(int i, int j)
         {
             Suit = (Suit)i;
             Value = (Value)j;
         }
-        public Suit Suit { get; set; }
+        public Suit Suit { get; private set; }
 
-        public Value Value { get; set; }
+        public Value Value { get; private set; }
 
-        public bool Equals(ICard other) {
+        public bool Equals(ICard other)
+        {
             return this == other as Card;
         }
     }

@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace CodingChallenge.CardGame
+﻿namespace CodingChallenge.CardGame
 {
+    /// <summary>
+    /// This class simply returns the standard pack of cards
+    /// </summary>
     public class PackOfCardsCreator : IPackOfCardsCreator
     {
         public IPackOfCards Create() {
