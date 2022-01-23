@@ -5,7 +5,8 @@ namespace CodingChallenge.ReversingString;
 public class StringUtilities
 {
     /// <summary>
-    ///  This method reverse the given string and returns the reversed string as an output
+    ///  This method reverse the given string and returns the reversed string as an output.
+    ///  To Do: Add try catch 
     /// </summary>
     /// <param name="s"> it is a string input</param>
     /// <returns>It returns the reversed string passed as an input</returns>
@@ -30,6 +31,7 @@ public class StringUtilities
     /// <summary>
     /// This method also returns the input string in reverse manner.
     /// This method executes faster as it only travers half of string as we are swapping the char in a loop itself.
+    /// To Do: Add try catch
     /// </summary>
     /// <param name="s">it is a string input</param>
     /// <returns>It returns the reversed string passed as an input</returns>
