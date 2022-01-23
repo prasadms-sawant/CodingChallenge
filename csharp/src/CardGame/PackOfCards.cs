@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace CodingChallenge.CardGame
 {
@@ -7,6 +8,7 @@ namespace CodingChallenge.CardGame
     {
         private static int _maxNumberOfCards = 52;
         private ICard[] _cards = new Card[_maxNumberOfCards];
+        private ICard[] _removedCards = new Card[_maxNumberOfCards];
         private int _currentCardPosition = 0;
         public PackOfCards()
         {
@@ -39,6 +41,9 @@ namespace CodingChallenge.CardGame
         {
             Random rand = new Random();
 
+            _removedCards = _removedCards.Where(card=> card != null).ToArray();
+            _cards = _cards.Concat(_removedCards).ToArray();
+
             for (int i = 0; i < _maxNumberOfCards; i++)
             {
 
@@ -56,6 +61,8 @@ namespace CodingChallenge.CardGame
         {
             if (_currentCardPosition< _maxNumberOfCards)
             {
+                _removedCards[_currentCardPosition] = _cards[_currentCardPosition];
+                _cards = _cards.Where((source, index) => index != _currentCardPosition).ToArray();
                 return _cards[_currentCardPosition++];
             }
             else
