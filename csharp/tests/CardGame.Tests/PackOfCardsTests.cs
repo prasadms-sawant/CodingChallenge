@@ -13,12 +13,13 @@ namespace CodingChallenge.CardGame.Tests
         }
 
         [Test]
-        [TestCase(51)]
-        [Repeat(10)]
-        public void TakeCardFromTopOfPackTest(int expectedCardsCount) {
-            _pack.TakeCardFromTopOfPack();
-            int output = _pack.Count;
-            Assert.AreEqual(expectedCardsCount, output);
+        public void TakeCardFromTopOfPackTest() {
+            for (int i = _pack.Count; i > 0; i--)
+            {
+                ICard card = _pack.TakeCardFromTopOfPack();
+                Assert.AreEqual(i - 1, _pack.Count);
+            }
+            Assert.AreEqual(0, _pack.Count);
         }
 
         [Test]

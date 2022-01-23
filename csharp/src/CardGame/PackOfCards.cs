@@ -9,7 +9,7 @@ namespace CodingChallenge.CardGame
         #region private members of the class
         private static int _maxNumberOfCards = 52;
         private ICard[] _cards = new Card[_maxNumberOfCards];
-        private ICard[] _removedCards = new Card[_maxNumberOfCards];
+        private IList<ICard> _removedCards = new List<ICard>();
         private int _currentCardPosition = 0;
         #endregion
 
@@ -50,7 +50,7 @@ namespace CodingChallenge.CardGame
             // Geting the elements from the array having values
             _removedCards = _removedCards.Where(card => card != null).ToArray();
             _cards = _cards.Concat(_removedCards).ToArray();
-            Count += _removedCards.Length;
+            Count += _removedCards.Count;
 
             for (int i = 0; i < _maxNumberOfCards; i++)
             {
@@ -71,16 +71,18 @@ namespace CodingChallenge.CardGame
         /// <returns></returns>
         public ICard TakeCardFromTopOfPack()
         {
-            if (_currentCardPosition < _maxNumberOfCards)
+            Count--;
+            if (_currentCardPosition < _cards.Length)
             {
-                _removedCards[_currentCardPosition] = _cards[_currentCardPosition];
+                _removedCards.Add(_cards[_currentCardPosition]);
                 _cards = _cards.Where((source, index) => index != _currentCardPosition).ToArray();
-                Count--;
                 return _cards[_currentCardPosition++];
             }
             else
             {
-                return null;
+                _removedCards.Add(_cards[--_currentCardPosition]);
+                _cards = _cards.Where((source, index) => index != _currentCardPosition).ToArray();
+                return _removedCards.Last();
             }
         }
 
