@@ -10,8 +10,7 @@ namespace CodingChallenge.ReversingString.Tests
         [TestCase("","")]
         [TestCase(null,"")]
         [TestCase("#sdfsdd","ddsfds#")]
-        public void ReverseStringTest(string input, string expectedOp)
-        {
+        public void ReverseStringTest(string input, string expectedOp){
             string output = StringUtilities.Reverse(input);
             Assert.AreEqual(expectedOp, output);
         }

@@ -9,7 +9,8 @@
         /// Initialize and returns an instance of PackOfCards.
         /// </summary>
         /// <returns></returns>
-        public IPackOfCards Create() {
+        public IPackOfCards Create()
+        {
             return new PackOfCards();
         }
     }

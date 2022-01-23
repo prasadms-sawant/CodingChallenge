@@ -24,8 +24,7 @@ namespace CodingChallenge.CardGame.Tests
 
         [Test]
         [TestCase(52)]
-        public void ShuffleTest(int expectedCardsCount)
-        {
+        public void ShuffleTest(int expectedCardsCount){
             _pack.Shuffle();
             int output = _pack.Count;
             Assert.AreEqual(expectedCardsCount, output);

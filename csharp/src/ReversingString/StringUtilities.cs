@@ -35,7 +35,8 @@ public class StringUtilities
     /// </summary>
     /// <param name="s">it is a string input</param>
     /// <returns>It returns the reversed string passed as an input</returns>
-    public static string OptimizedReverse(string s) {
+    public static string OptimizedReverse(string s)
+    {
 
         // Return blank if string is null or empty.
         if (String.IsNullOrEmpty(s))
