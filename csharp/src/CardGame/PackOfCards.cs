@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 
 namespace CodingChallenge.CardGame
@@ -9,7 +10,7 @@ namespace CodingChallenge.CardGame
         #region private members of the class
         private static int _maxNumberOfCards = 52;
         private ICard[] _cards = new Card[_maxNumberOfCards];
-        private IList<ICard> _removedCards = new List<ICard>();
+        private ICollection<ICard> _removedCards = new Collection<ICard>();
         private int _currentCardPosition = 0;
         #endregion
 
