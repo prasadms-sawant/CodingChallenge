@@ -19,7 +19,7 @@ public class StringUtilities
         char[] inputStrArr = s.ToCharArray();
         StringBuilder sbToHoldReversedStr = new StringBuilder(); 
 
-        for (int i = inputStrArr.Length - 1; i >0 ; i--)
+        for (int i = inputStrArr.Length - 1; i >=0 ; i--)
         {
             // appends the character in string builder starting from the last element of the array initialized.
             sbToHoldReversedStr.Append(inputStrArr[i]);
