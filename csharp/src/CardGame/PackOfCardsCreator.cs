@@ -5,6 +5,10 @@
     /// </summary>
     public class PackOfCardsCreator : IPackOfCardsCreator
     {
+        /// <summary>
+        /// Initialize and returns an instance of PackOfCards.
+        /// </summary>
+        /// <returns></returns>
         public IPackOfCards Create() {
             return new PackOfCards();
         }
